@@ -15,16 +15,11 @@ It aims to demonstrate the ability to create a packet driver that functions as a
 
 ## Description
 
-The project consists of three main components:
+The project consists of three main components. These components can be thought of as a simple architecture of the network:
 
-- `packetdescriptor.h`: Defines the packet descriptor data structure and manipulation functions.
-- `destination.h`: Defines the destination data structure for routing packets to specific processes.
-- `pid.h`: Defines the process ID type used for distinguishing between applications.
-- `freepacketdescriptorstore.h`: Defines the Free Packet Descriptor Store data structure and associated functions.
-- `networkdevice.h`: Provides an interface for the network device used by the packet driver.
-- `BoundedBuffer.h`: Defines a generic bounded buffer data structure with thread-safe operations.
-- `fakeapplications.h`: Contains functions for simulating fake applications used for testing the packet driver.
-- `packetdriver.h`: Provides the main API for the packet driver, including functions for sending and receiving packets.
+- `Applications`: 
+- `Network Layer`: 
+- `Link Layer`:
 
 ## File Structure
 
@@ -69,4 +64,4 @@ To run the packet driver test demo, use the following command:
 - Juan Rios (Implementation of the packet driver functions)
 
 ## Acknowledgments
-The project files have been revised and developed by Dr. Joe Sventek as an assigmnet for his Operating Systems class at the University of Oregon. The implementation of the packetdriver.c functions, along with the README.md file, are written by Juan Rios Jr, a Computer Science student at UO.
+The project files have been revised and developed by Dr. Joe Sventek as an assigmnet for his Operating Systems class at the University of Oregon. The implementation of the packetdriver.c functions, along with the README.md file, are written by Juan Rios Jr, a Computer Science student at the UO.

@@ -1,8 +1,8 @@
 # PThread-based Packet Driver
 
-This repository contains the implementation of a basic packet driver. The project involves developing a small but complex software system using PThreads to provide concurrency in C that sends and receives packets from the network. 
+This repository contains the implementation of a basic packet driver. It aims to demonstrate the ability to create a packet driver that functions as a multiplexer of packets from different applications onto a single network device and as a demultiplexer that delivers packets to the appropriate waiting callers.
 
-It aims to demonstrate the ability to create a packet driver that functions as a multiplexer of packets from different applications onto a single network device (receive) and as a demultiplexer that delivers packets to the appropriate waiting callers (send).
+In other words, the project involves developing a small but complex software system that sends and receives packets from the network. It makes use of pthreads, mutexes, and condition variables to provide concurrency in C.
 
 ## Table of Contents
 
@@ -15,11 +15,13 @@ It aims to demonstrate the ability to create a packet driver that functions as a
 
 ## Description
 
-The project consists of three main components. These components can be thought of as a simple architecture of the network:
+The Applications exchange packets with other Applications through a network. To facilitate this communication, a Network Device Driver has been provided for the selected network medium. However, the Applications and Network Device Driver operate at different speeds. Thus, the project seeks to develop a Packet Driver responsible for transmitting packets over the network and receiving incoming packets, without any packets being lost.
 
-- `Applications`: 
-- `Network Layer`: 
-- `Link Layer`:
+The project consists of three main component layers. These layers can be thought of as a simple architecture of the network:
+
+- `Applications`: Sends packets to and receives packets from other applications on the network. These are provided in testharness.o, and each one is labeled with its own PID. To send packets, an application must allocate a PacketDescriptor with relevant data, which gets passed onto the packet driver.
+- `Network Layer`: The Packet Driver and Packet Descriptor Store live here. This layer's purpose is to handle the speed mismatch between Applications and the Network Device Driver. 
+- `Link Layer`: Where the Network Device Driver is located. It is full-duplex, meaning that data can be transmitted in both directions.
 
 ## File Structure
 
@@ -38,8 +40,7 @@ The repository contains the following files:
 - `networkdevice_full.h`: Extends the `networkdevice.h` with additional functions for creating and initializing the network device.
 - `packetdescriptorcreator.h`: Provides functions for creating and initializing packet descriptors.
 - `diagnostics.h`: Defines macros and functions for enabling or disabling diagnostic messages.
-- `mydemo.c`: Contains the main function and entry point for the packet driver test demo.
-- `testharness.o`: Implements the test harness for the packet driver exercise.
+- `testharness.o`: Implements the test harness for the packet driver exercise. It defines main().
 
 ## Building the Project
 
@@ -61,7 +62,7 @@ To run the packet driver test demo, use the following command:
 
 ## Authors
 - Joe Sventek
-- Juan Rios (Implementation of the packet driver functions)
+- Juan Rios Jr
 
 ## Acknowledgments
-The project files have been revised and developed by Dr. Joe Sventek as an assigmnet for his Operating Systems class at the University of Oregon. The implementation of the packetdriver.c functions, along with the README.md file, are written by Juan Rios Jr, a Computer Science student at the UO.
+The project and its files have been revised and developed by Dr. Joe Sventek to serve as an assigmnet for his Operating Systems class at the University of Oregon. The implementation of the packetdriver.c functions, along with the README.md file, are written by Juan Rios Jr.

@@ -10,7 +10,7 @@
  * This is my own work, except for some of the comments/descriptions,
  * which were taken from the project handout.
  *
- * Author: Juan Rios
+ * Author: Juan Rios Jr
  */
 
 #include <pthread.h>

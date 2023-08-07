@@ -33,6 +33,7 @@ The repository contains the following files:
 - `freepacketdescriptorstore.h`: Defines the Free Packet Descriptor Store data structure and associated functions.
 - `networkdevice.h`: Provides an interface for the network device used by the packet driver.
 - `BoundedBuffer.h`: Defines a generic bounded buffer data structure with thread-safe operations.
+- `queue.h`: Defines a generic FIFO queue interface.
 - `fakeapplications.h`: Contains functions for simulating fake applications used for testing the packet driver.
 - `packetdriver.h`: Provides the main API for the packet driver, including functions for sending and receiving packets.
 - `packetdriver.c`: Contains the implementation of the packet driver functions.
@@ -41,6 +42,8 @@ The repository contains the following files:
 - `packetdescriptorcreator.h`: Provides functions for creating and initializing packet descriptors.
 - `diagnostics.h`: Defines macros and functions for enabling or disabling diagnostic messages.
 - `testharness.o`: Implements the test harness for the packet driver exercise. It defines main().
+- `libTH.a`: Contains object files required to build mydemo.
+- `Makefile`: Builds mydemo from testharness.o, packetdriver.o, and libTH.a.
 
 ## Building the Project
 
